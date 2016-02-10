@@ -4,10 +4,10 @@ var w = d3.select('.plot').node().clientWidth,
 var timeSeries = d3.timeSeries()
     .width(w)
     .height(h)
-    .timeRange([new Date(2011,6,16),new Date(2013,11,15)])
+    .timeRange([new Date(2011,6,16),new Date(2013,11,15)])//start,end
     .value(function(d){ return d.startTime; })
     .maxY(80)
-    .binSize(d3.time.day);
+    .binSize(d3.time.week);
 
 
 d3.csv('../data/hubway_trips_reduced.csv',parse,dataLoaded);
