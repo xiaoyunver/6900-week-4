@@ -32,6 +32,8 @@ d3.timeSeries = function(){
         //    .attr("width",w)
         //    .attr("height",h)
         //    .append("circle").attr("r",50);
+            chartW = w - m.l - m.r,
+            chartH = h - m.t - m.b;//make sure it uses new not original
 
         //create a histogram layout
         var layout = d3.layout.histogram()
@@ -67,11 +69,11 @@ d3.timeSeries = function(){
             //append DOM element
            var svg =  d3.select(this).append('svg');
             svg.attr('width',w).attr('height',h);
-            svg.append("g").attr("class","line").attr('transform','translate(0,-200)')
+            svg.append("g").attr("class","line").attr('transform','translate('+m.l+','+m.t+')')
                    .append("path");
-            svg.append("g").attr("class","area").attr('transform','translate(0,-200)')
+            svg.append("g").attr("class","area").attr('transform','translate('+m.l+','+m.t+')')
                     .append("path");
-            svg.append("g").attr("class","axis").attr('transform','translate(0,350)');
+            svg.append("g").attr("class","axis").attr('transform','translate('+m.l+','+(m.t+chartH)+')');
 
 
 
